@@ -1,0 +1,9 @@
+services:
+  phpcs:
+    image: ${IMAGES_PREFIX:-}phpcs
+    build:
+      context: ../../../
+      dockerfile: deploy/local/docker/tools/Dockerfile
+      target: phpcs
+    volumes:
+      - ../../../:/var/www/html
