@@ -26,7 +26,8 @@ RUN apt-get update -y && \
     unzip && \
     pecl install xdebug && \
     rm -rf /var/lib/apt/lists/* && \
-    && docker-php-ext-install zip xdebug
+    docker-php-ext-install zip && \
+    docker-php-ext-enable xdebug
 
 COPY ./deploy/local/docker/web/symfony/entrypoint.sh /usr/local/bin/entrypoint.sh
 
@@ -35,3 +36,7 @@ ENTRYPOINT ["entrypoint.sh"]
 FROM base AS phpcs
 
 ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpcs"]
+
+FROM base AS phpmd
+
+ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpmd"]
