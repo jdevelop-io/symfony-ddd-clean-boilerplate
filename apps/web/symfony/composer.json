@@ -22,6 +22,7 @@
     "php": ">=8.4",
     "ext-ctype": "*",
     "ext-iconv": "*",
+    "ext-zend-opcache": "*",
     "symfony/console": "7.2.*",
     "symfony/dotenv": "7.2.*",
     "symfony/flex": "^2",
