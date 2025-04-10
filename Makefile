@@ -13,3 +13,8 @@ build:
 start:
 	@echo "Starting the project..."
 	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) up -d
+
+.PHONY: stop
+stop:
+	@echo "Stopping the project..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) down
