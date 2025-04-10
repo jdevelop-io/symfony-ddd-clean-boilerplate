@@ -44,3 +44,7 @@ ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpmd"]
 FROM base AS phpstan
 
 ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpstan"]
+
+FROM base AS php-cs-fixer
+
+ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/php-cs-fixer"]
