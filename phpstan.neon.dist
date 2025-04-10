@@ -1,0 +1,11 @@
+includes:
+  - apps/web/symfony/phpstan.baseline.neon
+
+parameters:
+  level: 10
+  paths:
+    - src/
+    - tests/
+
+  excludePaths:
+    - vendor/
