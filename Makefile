@@ -12,7 +12,7 @@ build:
 .PHONY: start
 start:
 	@echo "Starting the project..."
-	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) up -d
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) up -d --wait --remove-orphans
 
 .PHONY: stop
 stop:
