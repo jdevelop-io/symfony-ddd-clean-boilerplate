@@ -1,5 +1,5 @@
 export COMPOSE_BAKE=true
-COMPOSE_FILES=deploy/local/docker/compose.yaml
+COMPOSE_FILES=deploy/local/docker/compose.yaml deploy/local/docker/compose.tools.yaml
 
 ifeq ($(shell docker compose version),)
   $(error "Docker Compose is not installed. Please install Docker Compose to use this Makefile.")
@@ -35,3 +35,10 @@ restart: stop start
 logs:
 	@echo "Showing logs..."
 	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) logs --follow --timestamps $(LOGS_ARGS)
+
+###> Tools ###
+.PHONY: phpcs
+phpcs:
+	@echo "Running PHP CodeSniffer..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm phpcs
+###< Tools ###
