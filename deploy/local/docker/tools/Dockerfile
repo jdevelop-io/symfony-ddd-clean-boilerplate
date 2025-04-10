@@ -40,3 +40,7 @@ ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpcs"]
 FROM base AS phpmd
 
 ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpmd"]
+
+FROM base AS phpstan
+
+ENTRYPOINT ["entrypoint.sh", "php", "vendor/bin/phpstan"]
