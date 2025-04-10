@@ -16,3 +16,12 @@ services:
       target: phpmd
     volumes:
       - ../../../:/var/www/html
+
+  phpstan:
+    image: ${IMAGES_PREFIX:-}phpstan
+    build:
+      context: ../../../
+      dockerfile: deploy/local/docker/tools/Dockerfile
+      target: phpstan
+    volumes:
+      - ../../../:/var/www/html
