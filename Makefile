@@ -17,7 +17,7 @@ start:
 .PHONY: stop
 stop:
 	@echo "Stopping the project..."
-	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) down
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) down --remove-orphans
 
 .PHONY: restart
 restart: stop start
