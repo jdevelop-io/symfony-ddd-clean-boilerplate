@@ -20,3 +20,6 @@ indent_size = 2
 
 [*.{yml,yaml}]
 indent_size = 2
+
+[*.{neon,neon.dist}]
+indent_size = 2
