@@ -1,6 +1,7 @@
 {
   "name": "jdevelop-io/symfony-ddd-clean-boilerplate",
   "description": "A boilerplate for Symfony projects that implements Domain-Driven Design (DDD), Hexagonal/Clean Architecture, and avoids traditional Symfony folder structures for maintainable, high-quality code.",
+  "version": "0.1.0",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -16,5 +17,8 @@
     "psr-4": {
       "SymfonyCleanBoilerplate\\": "src/"
     }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
   }
 }
