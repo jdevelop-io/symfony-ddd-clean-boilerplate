@@ -49,4 +49,9 @@ phpmd:
 		src,tests,apps text phpmd.xml.dist \
 		--color \
 		--exclude=vendor,*/vendor/*,*/var/*
+
+.PHONY: phpstan
+phpstan:
+	@echo "Running PHPStan..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm phpstan
 ###< Tools ###
