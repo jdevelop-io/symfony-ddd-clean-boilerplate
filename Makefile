@@ -18,3 +18,6 @@ start:
 stop:
 	@echo "Stopping the project..."
 	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) down
+
+.PHONY: restart
+restart: stop start
