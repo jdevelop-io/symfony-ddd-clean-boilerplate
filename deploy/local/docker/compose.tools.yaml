@@ -25,3 +25,14 @@ services:
       target: phpstan
     volumes:
       - ../../../:/var/www/html
+
+  php-cs-fixer:
+    image: ${IMAGES_PREFIX:-}php-cs-fixer
+    build:
+      context: ../../../
+      dockerfile: deploy/local/docker/tools/Dockerfile
+      target: php-cs-fixer
+      args:
+        - PHP_VERSION=8.3 # requires PHP 8.3 for now (2025-04-10)
+    volumes:
+      - ../../../:/var/www/html
