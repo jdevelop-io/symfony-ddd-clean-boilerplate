@@ -54,4 +54,10 @@ phpmd:
 phpstan:
 	@echo "Running PHPStan..."
 	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm phpstan
+
+.PHONY: php-cs-fixer
+php-cs-fixer:
+	@echo "Running PHP CS Fixer..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm php-cs-fixer \
+		fix --config=.php-cs-fixer.dist.php
 ###< Tools ###
