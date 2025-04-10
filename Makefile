@@ -1,6 +1,10 @@
 export COMPOSE_BAKE=true
 COMPOSE_FILES=deploy/local/docker/compose.yaml
 
+ifeq ($(shell docker compose version),)
+  $(error "Docker Compose is not installed. Please install Docker Compose to use this Makefile.")
+endif
+
 .PHONY: all
 all: build
 
@@ -21,3 +25,8 @@ stop:
 
 .PHONY: restart
 restart: stop start
+
+.PHONY: logs
+logs:
+	@echo "Showing logs..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) logs --follow --timestamps
