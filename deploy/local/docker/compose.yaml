@@ -1,0 +1,11 @@
+services:
+  web-symfony:
+    image: ${IMAGES_PREFIX:-}web-symfony
+    build:
+      context: ../../../
+      dockerfile: deploy/local/docker/web/symfony/Dockerfile
+    volumes:
+      - ../../../apps/web/symfony:/var/www/html
+      - ../../../src:/var/www/html/lib
+    ports:
+      - '8080:80'
