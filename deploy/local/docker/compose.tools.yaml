@@ -7,3 +7,12 @@ services:
       target: phpcs
     volumes:
       - ../../../:/var/www/html
+
+  phpmd:
+    image: ${IMAGES_PREFIX:-}phpmd
+    build:
+      context: ../../../
+      dockerfile: deploy/local/docker/tools/Dockerfile
+      target: phpmd
+    volumes:
+      - ../../../:/var/www/html
