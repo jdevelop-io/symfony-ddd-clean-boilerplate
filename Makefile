@@ -41,4 +41,12 @@ logs:
 phpcs:
 	@echo "Running PHP CodeSniffer..."
 	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm phpcs
+
+.PHONY: phpmd
+phpmd:
+	@echo "Running PHP Mess Detector..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) run --rm phpmd \
+	src,tests,apps text phpmd.xml.dist \
+	--color \
+	--exclude=vendor,*/vendor/*,*/var/*
 ###< Tools ###
