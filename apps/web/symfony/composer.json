@@ -6,9 +6,18 @@
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "SymfonyCleanBoilerplate\\": "src/"
+      "SymfonyCleanBoilerplate\\Web\\App\\": "src/"
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./lib",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
   "require": {
     "php": ">=8.4",
     "ext-ctype": "*",

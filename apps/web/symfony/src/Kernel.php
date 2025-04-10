@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyCleanBoilerplate;
+namespace SymfonyCleanBoilerplate\Web\App;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;

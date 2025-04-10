@@ -2,7 +2,7 @@
 <?php
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use SymfonyCleanBoilerplate\Kernel;
+use SymfonyCleanBoilerplate\Web\App\Kernel;
 
 if (!is_dir(dirname(__DIR__) . '/vendor')) {
     throw new LogicException('Dependencies are missing. Try running "composer install".');
