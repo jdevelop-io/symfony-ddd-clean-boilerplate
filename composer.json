@@ -24,7 +24,8 @@
     "phpmd/phpmd": "^2.15",
     "phpstan/phpstan": "^2.1",
     "phpstan/extension-installer": "^1.4",
-    "phpstan/phpstan-strict-rules": "^2.0"
+    "phpstan/phpstan-strict-rules": "^2.0",
+    "thecodingmachine/phpstan-safe-rule": "^1.4"
   },
   "config": {
     "allow-plugins": {
