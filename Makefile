@@ -8,3 +8,8 @@ all: build
 build:
 	@echo "Building the project..."
 	@docker compose --profile build $(foreach file, $(COMPOSE_FILES), -f $(file)) build
+
+.PHONY: start
+start:
+	@echo "Starting the project..."
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) up -d
