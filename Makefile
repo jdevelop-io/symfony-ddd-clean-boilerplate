@@ -5,6 +5,11 @@ ifeq ($(shell docker compose version),)
   $(error "Docker Compose is not installed. Please install Docker Compose to use this Makefile.")
 endif
 
+ifeq (logs,$(firstword $(MAKECMDGOALS)))
+  LOGS_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  $(eval $(LOGS_ARGS):;@:)
+endif
+
 .PHONY: all
 all: build
 
@@ -29,4 +34,4 @@ restart: stop start
 .PHONY: logs
 logs:
 	@echo "Showing logs..."
-	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) logs --follow --timestamps
+	@docker compose $(foreach file, $(COMPOSE_FILES), -f $(file)) logs --follow --timestamps $(LOGS_ARGS)
